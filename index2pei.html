@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <style>
+        .content{
+            min-height: 0;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+<div  class="content-wrapper">
+    <section class="content">
+        <ol class="breadcrumb">
+            <li><a href="#">流程配置</a></li>
+            <li class="active">admin</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="box">
+            <div class="box-body">
+                <table id="tableSet" >
+                    <thead>
+                        <tr  >
+                            <th class="text-center">编号</th>
+                            <th class="text-center">类型</th>
+                            <th class="text-center">节点</th>
+                            <th class="text-center">人员</th>
+                            <th class="text-center">事件</th>
+                            <th class="text-center">规则</th>
+                            <th class="text-center">表单</th>
+                            <th class="text-center">操作</th>
+                            <th class="text-center">提醒</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                    <tr>
+                        <td>1</td>
+                        <td>userTask</td>
+                        <td>填写请假单</td>
+                        <td>
+                            <a href="index2manset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>&nbsp<i class="badge">1</i>
+                        </td>
+                        <td>
+                            <a href="index2doset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index2guiset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index2formset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index2setset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index2addset.html">
+                                <i class="fa fa-file-archive-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table.min.js"></script>
+<script src="js/tableExport.min.js"></script>
+<script src="js/bootstrap-table-export.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+<script src="js/bootbox.js"></script>
+<script>
+    $("#tableSet").bootstrapTable({
+        height: "380",
+
+    })
+
+
+</script>
+</body>
+</html>

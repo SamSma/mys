@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <style>
+        .content{
+            min-height: 0;
+        }
+
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+<div id="m-main" class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="form-inline box-header">
+                        <div class="form-group">
+                            <label class="control-label">名称</label>
+                            <input class="input-sm" name="s_loginname" type="text" placeholder="请输入名称">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-sm btn-search">
+                                <i class="fa fa-search"></i> 查询
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">流程管理</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="btn-group hidden-xs" id="toolbar" role="group">
+                            <button type="button" class="btn  btn-default">
+                                <i class="fa fa-user-plus" ></i> 增加
+                            </button>
+                            <button type="button" class="btn  btn-default">
+                                <i class="fa fa-user-times"></i> 删除
+                            </button>
+
+                        </div>
+                        <table id="tableDemo" >
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table.min.js"></script>
+<script src="js/tableExport.min.js"></script>
+<script src="js/bootstrap-table-export.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+<script src="js/bootbox.js"></script>
+<script>
+    var e = [{
+        Tid: "1",
+        First: "奔波儿灞",
+        sex: "男",
+        Score: "50"
+    },
+        {
+            Tid: "2",
+            First: "灞波儿奔",
+            sex: "男",
+            Score: "94"
+        },
+        {
+            Tid: "3",
+            First: "作家崔成浩",
+            sex: "男",
+            Score: "80"
+        },
+        {
+            Tid: "4",
+            First: "韩寒",
+            sex: "男",
+            Score: "67"
+        },
+        {
+            Tid: "5",
+            First: "郭敬明",
+            sex: "男",
+            Score: "100"
+        },
+        {
+            Tid: "6",
+            First: "马云",
+            sex: "男",
+            Score: "77"
+        },
+        {
+            Tid: "7",
+            First: "范爷",
+            sex: "女",
+            Score: "87"
+        },{
+            Tid: "6",
+            First: "马云",
+            sex: "男",
+            Score: "77"
+        },
+        {
+            Tid: "7",
+            First: "范爷",
+            sex: "女",
+            Score: "87"
+        },{
+            Tid: "6",
+            First: "马云",
+            sex: "男",
+            Score: "77"
+        },
+        {
+            Tid: "7",
+            First: "范爷",
+            sex: "女",
+            Score: "87"
+        },{
+            Tid: "6",
+            First: "马云",
+            sex: "男",
+            Score: "77"
+        },
+        {
+            Tid: "7",
+            First: "范爷",
+            sex: "女",
+            Score: "87"
+        }];
+    $("#tableDemo").bootstrapTable({
+        data: e,
+        height: "380",
+        pageNumber:1,
+        showExport: true,//显示导出按钮
+        exportDataType: "basic",//导出类型
+        toolbar: '#toolbar',
+        pagination: true,
+        search: true,
+        showToggle:true,
+        showColumns:true,
+        columns:[{
+            checkbox: true,
+            field :''
+        },{
+            field:'Tid',
+            title:'ID'
+        },{
+            field:'First',
+            title:'姓名'
+        },{
+            field:'sex',
+            title:'性别'
+        },{
+            field:'Score',
+            title:'评分'
+        },{
+            title:'操作',
+            formatter:setStatus
+        }]
+    });
+
+    function setStatus(){
+        return '<a class="btn btn-primary btn-sm" href="index2edit.html">编辑</a> <a class="btn btn-primary btn-sm" href="index2pei.html">配置</a> '
+    }
+
+</script>
+</body>
+</html>

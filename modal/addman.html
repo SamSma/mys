@@ -1,0 +1,46 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">选择公司</label>
+        <div class="col-sm-8">
+            <select class="form-control">
+                <option value="">请选择....</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">选择部门</label>
+        <div class="col-sm-8">
+            <select class="form-control">
+                <option value="">请选择....</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">填写人员</label>
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input id="user" type="text" class="form-control" >
+                <span id="search" class="input-group-addon">查询</span>
+            </div>
+            <ul id="listInfo" style="display: none" class="list-group">
+                <li class="list-group-item">张三</li>
+                <li class="list-group-item">李四</li>
+                <li class="list-group-item">张三</li>
+                <li class="list-group-item">李四</li>
+            </ul>
+        </div>
+    </div>
+
+
+</form>
+<script>
+    $("#search").click(function () {
+        $("#listInfo").show();
+    })
+    $("#listInfo li").click(function () {
+        var html = $(this).html();
+        $("#user").val(html);
+        $("#listInfo").hide();
+    })
+
+</script>

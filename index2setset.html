@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+
+    <style>
+        .content{
+            min-height: 0;
+        }
+        .perSet{
+            border:1px solid #ccc;
+            border-top: 0;
+            margin-top: -1px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div  class="content-wrapper">
+        <section class="content">
+            <ol class="breadcrumb">
+                <li><a href="#">index2 </a></li>
+                <li><a href="#">配置</a></li>
+                <li class="active">填写</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box">
+                <div class="box-body">
+                    <div class="bs-example bs-example-tabs" >
+                        <ul id="myTabs" class="nav nav-tabs" >
+                            <li class="active"><a href="#home" id="home-tab" data-toggle="tab" >添加</a></li>
+
+                        </ul>
+                        <div id="myTabContent" class="tab-content perSet" >
+                            <div  class="tab-pane fade active in" id="home" >
+                                <ol class="breadcrumb text-center"><li> 添加</li></ol>
+
+                                    <div class="row">
+                                        <label class="col-md-3"></label>
+                                        <div class="col-md-6">
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-2">操作</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control">
+                                                            <option value="0">开始</option>
+                                                            <option value="1">结束</option>
+                                                            <option value="2">经过</option>
+                                                            <option value="3">创建</option>
+                                                            <option value="4">分配</option>
+                                                            <option value="5">完成</option>
+                                                            <option value="6">删除</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <label class="col-md-3"></label>
+                                    <div class="col-md-6 text-center">
+
+                                        <button class="btn btn-default">取消</button>&nbsp
+                                        <button class="btn btn-primary">保存</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="box">
+                <div class="box-body">
+                    <div class="box-header">
+                        <h3 class="box-title">列表</h3>
+                    </div>
+                    <table id="tableDemo">
+
+                    </table>
+                </div>
+            </div>
+
+
+        </section>
+    </div>
+
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/tableExport.min.js"></script>
+    <script src="js/bootstrap-table-export.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/qiao.js"></script>
+
+    <script>
+        //切换
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+
+        //table
+        var e = [{
+            Tid: "1",
+            First: "奔波儿灞",
+            sex: "男",
+            Score: "50"
+        },
+            {
+                Tid: "2",
+                First: "灞波儿奔",
+                sex: "男",
+                Score: "94"
+            },
+            {
+                Tid: "3",
+                First: "作家崔成浩",
+                sex: "男",
+                Score: "80"
+            },
+            {
+                Tid: "4",
+                First: "韩寒",
+                sex: "男",
+                Score: "67"
+            },
+            {
+                Tid: "5",
+                First: "郭敬明",
+                sex: "男",
+                Score: "100"
+            },
+            {
+                Tid: "6",
+                First: "马云",
+                sex: "男",
+                Score: "77"
+            },
+            {
+                Tid: "7",
+                First: "范爷",
+                sex: "女",
+                Score: "87"
+            },{
+                Tid: "6",
+                First: "马云",
+                sex: "男",
+                Score: "77"
+            },
+            {
+                Tid: "7",
+                First: "范爷",
+                sex: "女",
+                Score: "87"
+            }];
+        $("#tableDemo").bootstrapTable({
+            data: e,
+            height: "380",
+            pageNumber:1,
+            showExport: true,//显示导出按钮
+            exportDataType: "basic",//导出类型
+            toolbar: '#toolbar',
+            pagination: true,
+            search: true,
+            showToggle:true,
+            showColumns:true,
+            columns:[{
+                checkbox: true,
+                field :''
+            },{
+                field:'Tid',
+                title:'编号'
+            },{
+                field:'First',
+                title:'名称'
+            },{
+                field:'sex',
+                title:'类型'
+            },{
+                field:'Score',
+                title:'状态'
+            },{
+                title:'操作',
+                formatter:setStatus
+            }]
+        });
+
+        function setStatus(){
+            return '<a onclick="deteleInfo(this)" class="btn btn-primary btn-sm" href="javascript:;">删除</a> '
+        }
+        function deteleInfo(obj) {
+            $(obj).parents('tr').remove();
+        }
+
+    </script>
+</body>
+</html>
