@@ -213,6 +213,7 @@
         });
         //模态框
         $("#addMan").click(function () {
+
             qiao.bs.dialog({
                 id:'addModel',
                 okbtn : "确定",
@@ -220,8 +221,11 @@
                 title    : '添加人员',
                 btn : true,
                 qubtn : "取消",
-                widthNum : "1"
+                widthNum : "1",
 
+            },function () {
+                alert(1);
+                $("#addModel").modal('hide');
             });
 
         })
